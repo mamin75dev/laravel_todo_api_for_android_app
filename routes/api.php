@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AndroidTestsController;
 use App\Http\Controllers\ToDoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,9 @@ Route::prefix('/todo')->group(function () {
     Route::post('/add', [ToDoController::class, 'store']);
     Route::put('/{id}', [ToDoController::class, 'update']);
     Route::delete('/{id}', [ToDoController::class, 'destroy']);
+});
+
+Route::prefix('/android')->group(function() {
+    Route::post('/post', [AndroidTestsController::class, 'postMethodTest']);
+    Route::get('/get', [AndroidTestsController::class, 'getMethodTest']);
 });

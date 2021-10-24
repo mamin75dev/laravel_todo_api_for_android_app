@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AndroidTestsController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\ToDoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,9 @@ Route::prefix('/todo')->group(function () {
 Route::prefix('/android')->group(function() {
     Route::post('/post', [AndroidTestsController::class, 'postMethodTest']);
     Route::get('/get', [AndroidTestsController::class, 'getMethodTest']);
+});
+
+Route::prefix('/cities')->group(function() {
+    Route::get('/all', [CityController::class, 'getAllCities']);
+    Route::get('{id}', [CityController::class, 'getCityById']);
 });

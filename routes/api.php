@@ -28,12 +28,13 @@ Route::prefix('/todo')->group(function () {
     Route::delete('/{id}', [ToDoController::class, 'destroy']);
 });
 
-Route::prefix('/android')->group(function() {
+Route::prefix('/android')->group(function () {
     Route::post('/post', [AndroidTestsController::class, 'postMethodTest']);
     Route::get('/get', [AndroidTestsController::class, 'getMethodTest']);
 });
 
-Route::prefix('/cities')->group(function() {
+Route::prefix('/cities')->group(function () {
     Route::get('/all', [CityController::class, 'getAllCities']);
-    Route::get('{id}', [CityController::class, 'getCityById']);
+    Route::get('/search', [CityController::class, 'searchCities']);
+    Route::get('/city/{id}', [CityController::class, 'getCityById']);
 });
